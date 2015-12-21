@@ -440,10 +440,11 @@ def get_deck_metainfo(filtering=None,
         count = pagecount * .1
     print(count)
 
-    pagecount = math.ceil(count / DECKS_PER_PAGE)
+    pagecount = int(math.ceil(count / DECKS_PER_PAGE))
 
     regex = re.compile('^\s*\/decks\/(\d+)')
     output = []
+    
     for pagenum in range(1, pagecount+1):  # Adding one as range is exclusive
 
         # For each page, get a list of decks from all of the href attributes.
